@@ -4,11 +4,13 @@ import jsonpickle
 from mysql2doc.TableData import *
 import sys, traceback
 from mysql2doc.config import dbConfigMap
+from urllib.parse import quote_plus as urlquote
 
 
 class MySql:
     def __init__(self):
         super().__init__()
+        dbConfigMap['password'] = urlquote(dbConfigMap['password'])
         dburl = "mysql+pymysql://{userName}:{password}@{host}:{port}/{databaseName}?charset={charset}".format(
             **dbConfigMap
         )
