@@ -18,9 +18,9 @@ class Word:
         tableGrid = self.document.add_table(rows=1, cols=4, style='TableGrid')
         titleRow = tableGrid.rows[0].cells
         Word.__bold(titleRow[0], '字段')
-        titleRow[1].text = '类型'
-        titleRow[2].text = '备注'
-        titleRow[3].text = '允许为空'
+        Word.__bold(titleRow[1], '类型')
+        Word.__bold(titleRow[2], '备注')
+        Word.__bold(titleRow[3], '允许为空')
         for field in table.fields:
             row = tableGrid.add_row().cells
             row[0].text = field.name
@@ -35,10 +35,10 @@ class Word:
         idxTableGrid = self.document.add_table(rows=1, cols=5, style='TableGrid')
         idxTitleRow = idxTableGrid.rows[0].cells
         Word.__bold(idxTitleRow[0], '唯一索引')
-        idxTitleRow[1].text = '索引名称'
-        idxTitleRow[2].text = '索引顺序'
-        idxTitleRow[3].text = '字段'
-        idxTitleRow[4].text = '备注'
+        Word.__bold(idxTitleRow[1], '索引名称')
+        Word.__bold(idxTitleRow[2], '索引顺序')
+        Word.__bold(idxTitleRow[3], '字段')
+        Word.__bold(idxTitleRow[4], '备注')
         for index in table.indices:
             idxRow = idxTableGrid.add_row().cells
             if index.isUnique:
