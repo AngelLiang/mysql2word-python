@@ -59,7 +59,7 @@ class Word:
         try:
             mysql = MySql()
             word = Word(document)
-            for idx, table in enumerate(mysql.generateTableData()):
+            for idx, table in enumerate(mysql.generateTableData(), start=1):
                 word.addTable(table, idx)
         finally:
             MySql.close(mysql)
